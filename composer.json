@@ -1,0 +1,12 @@
+{
+    "name": "mzeis/mzeis_documentation",
+    "type": "magento-module",
+    "license": "MIT",
+    "description": "Create a documentation for your project in the backend.",
+    "authors": [
+        {
+            "name": "Matthias Zeis",
+            "homepage": "http://matthias-zeis.com"
+        }
+    ]
+}
