@@ -4,7 +4,7 @@ Create a documentation for your project in the backend.
 
 Facts
 -----
-- Version: 1.0.0
+- Version: 1.0.0 (unreleased)
 - [Extension on GitHub](https://github.com/mzeis/Mzeis_Documentation)
 
 Compatibility
@@ -23,6 +23,10 @@ Uninstallation
 Usage
 -----
 Navigate to `System > Documentation`.
+
+Changelog
+---------
+[CHANGELOG.md](CHANGELOG.md)
 
 Support
 -------
