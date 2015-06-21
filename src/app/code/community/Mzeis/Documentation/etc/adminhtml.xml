@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <system>
+            <children>
+                <mzeis_documentation translate="title" module="mzeis_documentation">
+                    <title>Documentation</title>
+                    <action>adminhtml/mzeis_documentation</action>
+                    <sort_order>20</sort_order>
+                </mzeis_documentation>
+            </children>
+        </system>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <mzeis_documentation translate="title" module="mzeis_documentation">
+                        <title>Documentation</title>
+                        <sort_order>200</sort_order>
+                    </mzeis_documentation>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
