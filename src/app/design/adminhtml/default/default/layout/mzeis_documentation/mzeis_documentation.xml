@@ -1,3 +1,8 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
+    <adminhtml_mzeis_documentation_view>
+        <reference name="content">
+            <block type="mzeis_documentation/page_view" name="mzeis.documentation.page" template="mzeis_documentation/page/view.phtml" />
+        </reference>
+    </adminhtml_mzeis_documentation_view>
 </layout>

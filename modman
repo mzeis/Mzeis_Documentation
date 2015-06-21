@@ -1,5 +1,6 @@
 src/app/code/community/Mzeis/Documentation/ app/code/community/Mzeis/Documentation/
 src/app/design/adminhtml/default/default/layout/mzeis_documentation/mzeis_documentation.xml app/design/adminhtml/default/default/layout/mzeis_documentation/mzeis_documentation.xml
+src/app/design/adminhtml/default/default/template/mzeis_documentation/ app/design/adminhtml/default/default/template/mzeis_documentation/
 src/app/etc/modules/Mzeis_Documentation.xml app/etc/modules/Mzeis_Documentation.xml
 src/app/locale/de_DE/Mzeis_Documentation.csv app/locale/de_DE/Mzeis_Documentation.csv
 src/app/locale/en_US/Mzeis_Documentation.csv app/locale/en_US/Mzeis_Documentation.csv
