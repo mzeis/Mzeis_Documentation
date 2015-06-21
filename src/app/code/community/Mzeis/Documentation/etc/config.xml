@@ -16,6 +16,24 @@
             </adminhtml>
         </routers>
     </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <mzeis_documentation>
+                    <files>
+                        <default>Mzeis_Documentation.csv</default>
+                    </files>
+                </mzeis_documentation>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <mzeis_documentation>
+                    <file>mzeis_documentation/mzeis_documentation.xml</file>
+                </mzeis_documentation>
+            </updates>
+        </layout>
+    </adminhtml>
     <global>
         <blocks>
             <mzeis_documentation>
