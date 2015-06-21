@@ -29,7 +29,18 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
      */
     protected function _isAllowed()
     {
-        return Mage::getSingleton('admin/session')->isAllowed('system/mzeis_documentation');
+        $action = strtolower($this->getRequest()->getActionName());
+        switch ($action) {
+            case 'edit':
+            case 'save':
+                $aclResource = 'system/mzeis_documentation/edit';
+                break;
+            default:
+                $aclResource = 'system/mzeis_documentation';
+                break;
+
+        }
+        return Mage::getSingleton('admin/session')->isAllowed($aclResource);
     }
 
     public function indexAction()

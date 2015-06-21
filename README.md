@@ -26,10 +26,13 @@ Navigate to `System > Documentation`. Start editing the homepage of the
 documentation by clicking the `Edit` button.
 
 ###Set another page as the documentation homepage
-
 By default, the documentation homepage is "Home". If you want to set another
 page as the homepage, enter the name in `System > Configuration > Advanced
 > Admin > Documentation > Homepage`.
+
+###Permissions
+You can define permissions for viewing and editing pages per admin user role.
+
 
 Changelog
 ---------

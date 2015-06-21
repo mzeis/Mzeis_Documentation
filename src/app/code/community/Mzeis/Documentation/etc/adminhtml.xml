@@ -19,7 +19,13 @@
                         <children>
                             <mzeis_documentation translate="title" module="mzeis_documentation">
                                 <title>Documentation</title>
-                                <sort_order>200</sort_order>
+                                <sort_order>20</sort_order>
+                                <children>
+                                    <edit translate="title" module="mzeis_documentation">
+                                        <title>Edit</title>
+                                        <sort_order>10</sort_order>
+                                    </edit>
+                                </children>
                             </mzeis_documentation>
                         </children>
                     </system>
