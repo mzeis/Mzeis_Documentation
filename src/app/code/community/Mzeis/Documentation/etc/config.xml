@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mzeis_Documentation>
+            <version>1.0.0</version>
+        </Mzeis_Documentation>
+    </modules>
+    <global>
+        <blocks>
+            <mzeis_documentation>
+                <class>Mzeis_Documentation_Block</class>
+            </mzeis_documentation>
+        </blocks>
+        <helpers>
+            <mzeis_documentation>
+                <class>Mzeis_Documentation_Helper</class>
+            </mzeis_documentation>
+        </helpers>
+        <models>
+            <mzeis_documentation>
+                <class>Mzeis_Documentation_Model</class>
+            </mzeis_documentation>
+        </models>
+        <resources>
+            <mzeis_documentation_setup>
+                <setup>
+                    <module>Mzeis_Documentation</module>
+                </setup>
+            </mzeis_documentation_setup>
+        </resources>
+    </global>
+</config>

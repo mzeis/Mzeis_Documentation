@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mzeis_Documentation>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>Mage_Adminhtml</depends>
+        </Mzeis_Documentation>
+    </modules>
+</config>
