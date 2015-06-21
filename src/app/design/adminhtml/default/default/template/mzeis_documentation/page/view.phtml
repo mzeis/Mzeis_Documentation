@@ -1,6 +1,24 @@
 <?php
 /**
- * @var $this Mzeis_Documentation_Block_Page_View
+ * @var $this Mzeis_Documentation_Block_Adminhtml_Page_View
  */
-?>
 
+/**
+ * @var $_page Mzeis_Documentation_Model_Page
+ */
+$_page = $this->getPage();
+?>
+<div class="content-header">
+    <h3><?php echo $this->__('Documentation') ?> &gt; <?php echo $this->escapeHtml($_page->getName()); ?></h3>
+    <p class="form-buttons">
+        <?php echo $this->getChildHtml('edit_button'); ?>
+    </p>
+</div>
+
+<div class="mzeis-documentation page-container">
+    <?php if ($_page->getId()): ?>
+        <?php echo $_page->getContent(); ?>
+    <?php else: ?>
+        <?php echo $this->__('This page is empty. <a href="%s">Add content</a>', $this->getEditUrl(), $_page->getName()); ?>
+    <?php endif; ?>
+</div>

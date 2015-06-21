@@ -2,7 +2,13 @@
 <layout version="0.1.0">
     <adminhtml_mzeis_documentation_view>
         <reference name="content">
-            <block type="mzeis_documentation/page_view" name="mzeis.documentation.page" template="mzeis_documentation/page/view.phtml" />
+            <block type="mzeis_documentation/adminhtml_page_view" name="mzeis.documentation.page.view" template="mzeis_documentation/page/view.phtml" />
         </reference>
     </adminhtml_mzeis_documentation_view>
+
+    <adminhtml_mzeis_documentation_edit>
+        <reference name="content">
+            <block type="mzeis_documentation/adminhtml_page_edit" name="mzeis.documentation.page.edit" />
+        </reference>
+    </adminhtml_mzeis_documentation_edit>
 </layout>

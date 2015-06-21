@@ -15,10 +15,14 @@
         <resources>
             <admin>
                 <children>
-                    <mzeis_documentation translate="title" module="mzeis_documentation">
-                        <title>Documentation</title>
-                        <sort_order>200</sort_order>
-                    </mzeis_documentation>
+                    <system>
+                        <children>
+                            <mzeis_documentation translate="title" module="mzeis_documentation">
+                                <title>Documentation</title>
+                                <sort_order>200</sort_order>
+                            </mzeis_documentation>
+                        </children>
+                    </system>
                 </children>
             </admin>
         </resources>

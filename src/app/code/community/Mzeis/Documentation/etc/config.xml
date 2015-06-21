@@ -34,6 +34,13 @@
             </updates>
         </layout>
     </adminhtml>
+    <default>
+        <admin>
+            <mzeis_documentation>
+                <homepage>Home</homepage>
+            </mzeis_documentation>
+        </admin>
+    </default>
     <global>
         <blocks>
             <mzeis_documentation>
@@ -48,7 +55,16 @@
         <models>
             <mzeis_documentation>
                 <class>Mzeis_Documentation_Model</class>
+                <resourceModel>mzeis_documentation_resource</resourceModel>
             </mzeis_documentation>
+            <mzeis_documentation_resource>
+                <class>Mzeis_Documentation_Model_Resource</class>
+                <entities>
+                    <page>
+                        <table>mzeis_documentation_page</table>
+                    </page>
+                </entities>
+            </mzeis_documentation_resource>
         </models>
         <resources>
             <mzeis_documentation_setup>
