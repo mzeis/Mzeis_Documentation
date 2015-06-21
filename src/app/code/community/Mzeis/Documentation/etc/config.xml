@@ -5,6 +5,17 @@
             <version>1.0.0</version>
         </Mzeis_Documentation>
     </modules>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <mzeis_documentation after="Mage_adminhtml">Mzeis_Documentation_Adminhtml</mzeis_documentation>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
     <global>
         <blocks>
             <mzeis_documentation>
