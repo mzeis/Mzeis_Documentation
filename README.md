@@ -9,7 +9,7 @@ Facts
 
 Compatibility
 -------------
-- Magento >= CE 1. (may also work in other versions)
+- Magento >= CE 1.9.1 (may also work in other versions)
 
 Installation
 ------------
