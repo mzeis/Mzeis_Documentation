@@ -4,6 +4,14 @@ class Mzeis_Documentation_Model_Page_Renderer
 {
     const LINK_PATTERN = '/\[\[(.*?)\]\]/';
 
+    /**
+     * Renders the page content.
+     *
+     * Internal documentation links are inserted and CMS template filters applied.
+     *
+     * @param Mzeis_Documentation_Model_Page $page
+     * @return string
+     */
     public function renderContent(Mzeis_Documentation_Model_Page $page)
     {
         $content = $page->getContent();
@@ -29,6 +37,9 @@ class Mzeis_Documentation_Model_Page_Renderer
                 $content = str_replace('[[' . $nonExistingPage . ']]', '<a href="' . $helper->getViewUrl($nonExistingPage) . '" class="mzeis-documentation-page-not-found">' . $nonExistingPage . '</a>', $content);
             }
         }
-        return $content;
+
+        $helper = Mage::helper('cms');
+        $processor = $helper->getPageTemplateProcessor();
+        return $processor->filter($content);
     }
 }
