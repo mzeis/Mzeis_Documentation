@@ -43,7 +43,9 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Edit extends Mage_Adminhtml_Block
     public function __construct()
     {
         parent::__construct();
-        $this->removeButton('delete');
+        if (!Mage::getSingleton('admin/session')->isAllowed('system/mzeis_documentation/delete')) {
+            $this->_removeButton('delete');
+        }
         $this->removeButton('reset');
         $this->addButton('saveandcontinue', array(
             'label' => $this->__('Save and Continue Edit'),

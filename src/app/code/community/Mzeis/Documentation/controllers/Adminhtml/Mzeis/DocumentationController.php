@@ -31,6 +31,9 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
     {
         $action = strtolower($this->getRequest()->getActionName());
         switch ($action) {
+            case 'delete':
+                $aclResource = 'system/mzeis_documentation/delete';
+                break;
             case 'edit':
             case 'save':
                 $aclResource = 'system/mzeis_documentation/edit';
