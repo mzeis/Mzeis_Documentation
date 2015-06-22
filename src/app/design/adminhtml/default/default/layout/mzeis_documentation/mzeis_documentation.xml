@@ -7,6 +7,10 @@
     </adminhtml_mzeis_documentation_view>
 
     <adminhtml_mzeis_documentation_edit>
+        <update handle="editor"/>
+        <reference name="head">
+            <action method="setCanLoadTinyMce"><load>1</load></action>
+        </reference>
         <reference name="content">
             <block type="mzeis_documentation/adminhtml_page_edit" name="mzeis.documentation.page.edit" />
         </reference>
