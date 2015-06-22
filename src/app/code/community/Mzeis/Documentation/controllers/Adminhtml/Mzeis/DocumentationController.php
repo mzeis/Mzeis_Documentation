@@ -46,10 +46,26 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
         return Mage::getSingleton('admin/session')->isAllowed($aclResource);
     }
 
-    public function indexAction()
+    public function deleteAction()
     {
-        $this->getRequest()->setParam('page', Mage::helper('mzeis_documentation')->getHomepageName());
-        $this->_forward('view');
+        if ($name = $this->getRequest()->getParam('page')) {
+            try {
+                $model = Mage::getModel('mzeis_documentation/page');
+                $model->load($name, 'name');
+                $model->delete();
+
+                Mage::getSingleton('adminhtml/session')->addSuccess(
+                    Mage::helper('mzeis_documentation')->__('The page has been deleted.'));
+                $this->_redirect('*/*/');
+                return;
+            } catch (Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                $this->_redirect('*/*/edit', array('_query' => array('page' => $name)));
+                return;
+            }
+        }
+        Mage::getSingleton('adminhtml/session')->addError(Mage::helper('mzeis_documentation')->__('Unable to find a page to delete.'));
+        $this->_redirect('*/*/');
     }
 
     public function editAction()
@@ -58,7 +74,13 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
         $this->_initPage();
         $this->renderLayout();
     }
-    
+
+    public function indexAction()
+    {
+        $this->getRequest()->setParam('page', Mage::helper('mzeis_documentation')->getHomepageName());
+        $this->_forward('view');
+    }
+
     public function saveAction()
     {
         $back = $this->getRequest()->getParam('back', false);
