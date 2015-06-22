@@ -1,12 +1,21 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
+
+    <adminhtml_mzeis_documentation_general>
+        <reference name="head">
+            <action method="addCss"><name>mzeis_documentation/style.css</name></action>
+        </reference>
+    </adminhtml_mzeis_documentation_general>
+
     <adminhtml_mzeis_documentation_view>
+        <update handle="adminhtml_mzeis_documentation_general"/>
         <reference name="content">
             <block type="mzeis_documentation/adminhtml_page_view" name="mzeis.documentation.page.view" template="mzeis_documentation/page/view.phtml" />
         </reference>
     </adminhtml_mzeis_documentation_view>
 
     <adminhtml_mzeis_documentation_edit>
+        <update handle="adminhtml_mzeis_documentation_general"/>
         <update handle="editor"/>
         <reference name="head">
             <action method="setCanLoadTinyMce"><load>1</load></action>

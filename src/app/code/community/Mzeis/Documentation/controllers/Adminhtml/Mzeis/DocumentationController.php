@@ -48,7 +48,7 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
 
     public function indexAction()
     {
-        $this->getRequest()->setParam('page',Mage::helper('mzeis_documentation')->getHomepageName());
+        $this->getRequest()->setParam('page', Mage::helper('mzeis_documentation')->getHomepageName());
         $this->_forward('view');
     }
 
