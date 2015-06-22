@@ -17,9 +17,9 @@ $_page = $this->getPage();
 
 <div class="mzeis-documentation page-container">
     <?php if ($_page->getId()): ?>
-        <?php echo $_page->getContent(); ?>
+        <?php echo $this->renderContent(); ?>
     <?php else: ?>
         <?php echo $this->__('This page is empty.'); ?>
-        <?php if ($this->isAllowedEdit()): echo $this->__('<a href="%s">Add content</a>', $this->getEditUrl(), $_page->getName()); endif; ?>
+        <?php if ($this->isAllowedEdit()): echo $this->__('<a href="%s">Add content</a>', Mage::helper('mzeis_documentation/page')->getEditUrl($_page->getName())); endif; ?>
     <?php endif; ?>
 </div>

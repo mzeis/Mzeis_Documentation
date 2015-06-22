@@ -79,10 +79,10 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
         }
 
         if ($back) {
-            $this->_redirect('*/*/edit', array('page' => $page->getName(), '_current' => true));
+            $this->_redirect('*/*/edit', array('_query' => array('page' => $page->getName()), '_current' => true));
             return;
         }
-        $this->_redirect('*/*/view', array('page' => $page->getName(), '_current' => true));
+        $this->_redirect('*/*/view', array('_query' => array('page' => $page->getName()), '_current' => true));
     }
 
     public function viewAction()

@@ -57,7 +57,7 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Edit extends Mage_Adminhtml_Block
      */
     public function getBackUrl()
     {
-        return $this->getUrl('*/*/view', array($this->_objectId => $this->getRequest()->getParam('page')));
+        return $this->getUrl('*/*/view', array('_query' => array($this->_objectId => $this->getRequest()->getParam('page'))));
     }
 
     /**
@@ -65,7 +65,7 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Edit extends Mage_Adminhtml_Block
      */
     public function getDeleteUrl()
     {
-        return $this->getUrl('*/*/delete', array($this->_objectId => $this->getRequest()->getParam('page')));
+        return $this->getUrl('*/*/delete', array('_query' => array($this->_objectId => $this->getRequest()->getParam('page'))));
     }
 
     /**
