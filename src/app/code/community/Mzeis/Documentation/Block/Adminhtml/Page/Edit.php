@@ -52,6 +52,10 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Edit extends Mage_Adminhtml_Block
             'onclick' => 'saveAndContinueEdit()',
             'class' => 'save',
         ), -100);
+        $this->addButton('view', array(
+            'label' => $this->__('View'),
+            'onclick' => 'window.open(\'' . $this->getViewUrl() . '\')',
+        ), -100);
     }
 
     /**
@@ -59,7 +63,7 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Edit extends Mage_Adminhtml_Block
      */
     public function getBackUrl()
     {
-        return $this->getUrl('*/*/view', array('_query' => array($this->_objectId => $this->getRequest()->getParam('page'))));
+        return $this->getViewUrl();
     }
 
     /**
@@ -84,5 +88,13 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Edit extends Mage_Adminhtml_Block
     public function getSaveUrl()
     {
         return $this->getUrl('*/*/save', array('_current' => true, 'back' => null));
+    }
+
+    /**
+     * @return string
+     */
+    public function getViewUrl()
+    {
+        return $this->getUrl('*/*/view', array('_query' => array($this->_objectId => $this->getRequest()->getParam('page'))));
     }
 }
