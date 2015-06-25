@@ -16,6 +16,18 @@ class Mzeis_Documentation_Model_Page_Renderer
     {
         $content = $page->getContent();
 
+        $content = $this->_renderDocumentationLinks($content);
+        $content = $this->_renderWidgets($content);
+        return $content;
+    }
+
+    /**
+     * @param string $content
+     * @return string
+     * @throws Exception
+     */
+    protected function _renderDocumentationLinks($content)
+    {
         $found = preg_match_all(self::LINK_PATTERN, $content, $linkedPages);
         if ($found) {
             $helper = Mage::helper("mzeis_documentation/page");
@@ -37,9 +49,20 @@ class Mzeis_Documentation_Model_Page_Renderer
                 $content = str_replace('[[' . $nonExistingPage . ']]', '<a href="' . $helper->getViewUrl($nonExistingPage) . '" class="mzeis-documentation-page-not-found">' . $nonExistingPage . '</a>', $content);
             }
         }
+        return $content;
+    }
 
-        $helper = Mage::helper('cms');
-        $processor = $helper->getPageTemplateProcessor();
-        return $processor->filter($content);
+    /**
+     * @param string $content
+     * @return string
+     * @throws Exception
+     */
+    protected function _renderWidgets($content)
+    {
+        $appEmulation = Mage::getSingleton( 'core/app_emulation' );
+        $initialEnvironmentInfo = $appEmulation->startEnvironmentEmulation(Mage_Core_Model_App::ADMIN_STORE_ID);
+        $content  = Mage::helper('cms')->getPageTemplateProcessor()->filter($content);
+        $appEmulation->stopEnvironmentEmulation($initialEnvironmentInfo);
+        return $content;
     }
 }
