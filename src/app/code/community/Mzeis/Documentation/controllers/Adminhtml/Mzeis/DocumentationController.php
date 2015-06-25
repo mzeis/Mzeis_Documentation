@@ -99,8 +99,6 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
                 $this->_getSession()->addError($e->getMessage());
                 $back = true;
             }
-
-            $this->_getSession()->setFormData($data);
         }
 
         if ($back) {
