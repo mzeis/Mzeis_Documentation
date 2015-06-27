@@ -43,7 +43,7 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Edit extends Mage_Adminhtml_Block
     public function __construct()
     {
         parent::__construct();
-        if (!Mage::getSingleton('admin/session')->isAllowed('system/mzeis_documentation/delete')) {
+        if (!Mage::getSingleton('admin/session')->isAllowed('system/mzeis_documentation/delete') || !$this->_getPage()->getId()) {
             $this->_removeButton('delete');
         }
         $this->removeButton('reset');

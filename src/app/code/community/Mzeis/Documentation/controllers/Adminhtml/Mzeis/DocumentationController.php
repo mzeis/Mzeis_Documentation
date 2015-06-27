@@ -70,8 +70,8 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
 
     public function editAction()
     {
-        $this->_initAction();
         $this->_initPage();
+        $this->_initAction();
         $this->renderLayout();
     }
 
