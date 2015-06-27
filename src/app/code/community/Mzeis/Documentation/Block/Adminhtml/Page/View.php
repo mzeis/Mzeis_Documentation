@@ -36,6 +36,15 @@ class Mzeis_Documentation_Block_Adminhtml_Page_View extends Mage_Adminhtml_Block
     }
 
     /**
+     * @param string $timestamp
+     * @return string
+     */
+    public function printDate($timestamp)
+    {
+        return Mage::helper('core')->formatDate($timestamp, Mage_Core_Model_Locale::FORMAT_TYPE_SHORT, true);
+    }
+
+    /**
      * Renders the content.
      *
      * @return string

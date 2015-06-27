@@ -18,6 +18,10 @@ $_page = $this->getPage();
 <div class="mzeis-documentation page-container">
     <?php if ($_page->getId()): ?>
         <?php echo $this->renderContent(); ?>
+        <div class="documentation-meta-info">
+            <p><?php echo $this->__('Created: %s', $this->printDate($_page->getCreatedAt())); ?></p>
+            <p><?php if($_page->getCreatedAt() != $_page->getUpdatedAt()) { echo $this->__('Updated: %s', $this->printDate($_page->getUpdatedAt())); } ?></p>
+        </div>
     <?php else: ?>
         <?php echo $this->__('This page is empty.'); ?>
         <?php if ($this->isAllowedEdit()): echo $this->__('<a href="%s">Add content</a>', Mage::helper('mzeis_documentation/page')->getEditUrl($_page->getName())); endif; ?>
