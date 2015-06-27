@@ -19,10 +19,16 @@ $table = $installer->getConnection()
     ), 'Page Content')
     ->addColumn('created_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
     ), 'Creation Time')
+    ->addColumn('created_user', Varien_Db_Ddl_Table::TYPE_TEXT, 40, array(
+        'nullable'  => true,
+    ), 'Creation User')
     ->addColumn('updated_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
         'nullable'  => false,
         'default'   => Varien_Db_Ddl_Table::TIMESTAMP_INIT_UPDATE,
     ), 'Update Time')
+    ->addColumn('updated_user', Varien_Db_Ddl_Table::TYPE_TEXT, 40, array(
+        'nullable'  => true,
+    ), 'Update User')
     ->addIndex(
         $installer->getIdxName(
             'mzeis_documentation/page',

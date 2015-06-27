@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Documentation page model
+ *
+ * @method getCreatedUser()
+ * @method getName()
+ * @method getUpdatedUser()
+ * @method setCreatedUser(string $value)
+ * @method setName(string $value)
+ * @method setUpdatedUser(string $value)
+ */
 class Mzeis_Documentation_Model_Page extends Mage_Core_Model_Abstract
 {
 

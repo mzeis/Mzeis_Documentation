@@ -86,10 +86,14 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
         $back = $this->getRequest()->getParam('back', false);
 
         if ($data = $this->getRequest()->getPost()) {
-            $page = $this->_initPage();
-            $page->addData($data);
-
             try {
+                $page = $this->_initPage();
+                $page->addData($data);
+
+                if (!$page->getId()) {
+                    $page->setCreatedUser(Mage::getSingleton('admin/session')->getUser()->getUsername());
+                }
+                $page->setUpdatedUser(Mage::getSingleton('admin/session')->getUser()->getUsername());
                 $page->save();
                 $this->_getSession()->addSuccess(
                     Mage::helper('mzeis_documentation')->__('The page has been saved.')

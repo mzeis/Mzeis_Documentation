@@ -6,5 +6,5 @@
 "Page ""%s""","Page ""%s"""
 "Save and Continue Edit","Save and Continue Edit"
 "Content","Content"
-"Created: %s","Created: %s"
-"Updated: %s","Updated: %s"
+"Created: %s by %s","Created: %s by %s"
+"Updated: %s by %s","Updated: %s by %s"

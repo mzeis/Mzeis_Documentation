@@ -7,5 +7,5 @@
 "Page ""%s""","Seite ""%s"""
 "Save and Continue Edit","Speichern und weiter bearbeiten"
 "Content","Inhalt"
-"Created: %s","Erstellt: %s Uhr"
-"Updated: %s","Aktualisiert: %s Uhr"
+"Created: %s by %s","Erstellt: %s Uhr von %s"
+"Updated: %s by %s","Aktualisiert: %s Uhr von %s"
