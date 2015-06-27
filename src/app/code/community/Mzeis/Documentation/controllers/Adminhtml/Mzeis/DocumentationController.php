@@ -126,6 +126,10 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
         if ($block) {
             $block->setPage($page);
         }
+        $block = $this->getLayout()->getBlock('mzeis.documentation.page.sidebar');
+        if ($block) {
+            $block->setPage($page);
+        }
         $this->renderLayout();
     }
 }

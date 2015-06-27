@@ -1,3 +1,9 @@
-.content-header-link, .content-header-link:hover {
-    font-weight: bold;
+.side-col .content-header {
+    border-bottom: 4px solid #dfdfdf;
+    margin-bottom: 18px;
+}
+
+.mzeis-documentation-menu {
+    list-style-position: inside;
+    list-style-type: disc;
 }

@@ -9,7 +9,7 @@
 $_page = $this->getPage();
 ?>
 <div class="content-header">
-    <h3><a href="<?php echo $this->getHomepageUrl(); ?>" class="content-header-link"><?php echo $this->__('Documentation') ?></a> &gt; <?php echo $this->escapeHtml($_page->getName()); ?></h3>
+    <h3><?php echo $this->escapeHtml($_page->getName()); ?></h3>
     <p class="form-buttons">
         <?php echo $this->getChildHtml('edit_button'); ?>
     </p>

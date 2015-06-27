@@ -9,6 +9,9 @@
 
     <adminhtml_mzeis_documentation_view>
         <update handle="adminhtml_mzeis_documentation_general"/>
+        <reference name="left">
+            <block type="mzeis_documentation/adminhtml_page_sidebar" name="mzeis.documentation.page.sidebar" template="mzeis_documentation/page/sidebar.phtml"/>
+        </reference>
         <reference name="content">
             <block type="mzeis_documentation/adminhtml_page_view" name="mzeis.documentation.page.view" template="mzeis_documentation/page/view.phtml" />
         </reference>

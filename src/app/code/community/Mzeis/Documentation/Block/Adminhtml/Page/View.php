@@ -18,16 +18,6 @@ class Mzeis_Documentation_Block_Adminhtml_Page_View extends Mage_Adminhtml_Block
     }
 
     /**
-     * Returns the URL of the documentation homepage.
-     *
-     * @return string
-     */
-    public function getHomepageUrl()
-    {
-        return Mage::helper('mzeis_documentation/page')->getViewUrl(Mage::helper('mzeis_documentation')->getHomepageName());
-    }
-
-    /**
      * @return bool
      */
     public function isAllowedEdit()
