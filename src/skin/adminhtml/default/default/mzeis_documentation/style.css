@@ -7,3 +7,13 @@
     list-style-position: inside;
     list-style-type: disc;
 }
+
+.mzeis-documentation-page-container ul {
+    list-style-position: inside;
+    list-style-type: disc;
+    margin: 0.5em 0;
+}
+
+.mzeis-documentation-meta-info {
+    margin-top: 18px;
+}

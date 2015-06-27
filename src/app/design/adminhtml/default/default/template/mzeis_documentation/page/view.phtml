@@ -15,10 +15,10 @@ $_page = $this->getPage();
     </p>
 </div>
 
-<div class="mzeis-documentation page-container">
+<div class="mzeis-documentation-page-container">
     <?php if ($_page->getId()): ?>
         <?php echo $this->renderContent(); ?>
-        <div class="box documentation-meta-info">
+        <div class="box mzeis-documentation-meta-info">
             <p><?php echo $this->__('Created: %s by %s', $this->printDate($_page->getCreatedAt()), $this->escapeHtml(($_page->getCreatedUser()))); ?></p>
             <p><?php if($_page->getCreatedAt() != $_page->getUpdatedAt()) { echo $this->__('Updated: %s by %s', $this->printDate($_page->getUpdatedAt()), $this->escapeHtml($_page->getUpdatedUser())); } ?></p>
         </div>
