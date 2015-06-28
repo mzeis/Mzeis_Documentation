@@ -1,0 +1,22 @@
+<?php
+/**
+ * @var $this Mzeis_Documentation_Block_Adminhtml_Page_List
+ */
+$_collection = $this->getAllPagesCollection();
+$_helper = Mage::helper('mzeis_documentation/page');
+?>
+<div class="content-header">
+    <h3><?php echo $this->__('All pages'); ?></h3>
+</div>
+<div class="mzeis-documentation-container">
+<?php if ($_collection->getSize() > 0): ?>
+    <p><?php echo $this->__('%s result(s)', $_collection->getSize()); ?></p>
+    <ol>
+    <?php foreach ($_collection as $_page): ?>
+        <li><a href="<?php echo $_helper->getViewUrl($_page->getName()); ?>"><?php echo $this->escapeHtml($_page->getName()); ?></a></li>
+    <?php endforeach; ?>
+    </ol>
+<?php else: ?>
+    <p><?php echo $this->__('No pages found.'); ?></p>
+<?php endif; ?>
+</div>

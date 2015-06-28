@@ -3,6 +3,15 @@
 class Mzeis_Documentation_Block_Adminhtml_Page_Sidebar extends Mage_Adminhtml_Block_Template
 {
     /**
+     * Returns the URL of the "All Pages" page.
+     *
+     * @return string
+     */
+    public function getAllPagesUrl() {
+        return $this->getUrl('adminhtml/mzeis_documentation_list/allPages');
+    }
+
+    /**
      * Returns the URL of the system configuration section.
      *
      * @return string
