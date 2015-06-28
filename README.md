@@ -2,6 +2,17 @@ Mzeis_Documentation
 =====================
 Create a documentation for your project in the backend.
 
+Build Status
+---
+**Latest Release**
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mzeis/Mzeis_Documentation/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mzeis/Mzeis_Documentation/?branch=master)
+ 
+**Development Branch**
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mzeis/Mzeis_Documentation/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mzeis/Mzeis_Documentation/?branch=dev)
+
+
 Facts
 -----
 - Version: 1.0.0 (unreleased)
@@ -76,7 +87,6 @@ Click on the documentation menu link `All pages` to get an overview over all pag
 It might happen that an existing pages isn't linked to anymore by any other pages when these
 pages are changed. The documentation menu link `Orphan pages` will show you all pages without
 links pointing at them.
-
 
 Changelog
 ---------
