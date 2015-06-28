@@ -5,8 +5,7 @@
 }
 
 .mzeis-documentation-menu {
-    list-style-position: inside;
-    list-style-type: disc;
+    list-style: disc inside;
 }
 
 .mzeis-documentation-container ul,

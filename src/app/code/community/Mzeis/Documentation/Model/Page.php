@@ -3,11 +3,15 @@
 /**
  * Documentation page model
  *
+ * @method getCreatedAt()
  * @method getCreatedUser()
  * @method getName()
+ * @method getUpdatedAt()
  * @method getUpdatedUser()
+ * @method setCreatedAt(string $value)
  * @method setCreatedUser(string $value)
  * @method setName(string $value)
+ * @method setUpdatedAt(string $value)
  * @method setUpdatedUser(string $value)
  */
 class Mzeis_Documentation_Model_Page extends Mage_Core_Model_Abstract

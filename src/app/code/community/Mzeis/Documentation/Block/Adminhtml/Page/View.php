@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @method Mzeis_Documentation_Model_Page getPage()
+ */
 class Mzeis_Documentation_Block_Adminhtml_Page_View extends Mage_Adminhtml_Block_Template
 {
     protected function _beforeToHtml()

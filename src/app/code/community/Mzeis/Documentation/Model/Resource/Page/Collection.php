@@ -7,6 +7,7 @@ class Mzeis_Documentation_Model_Resource_Page_Collection extends Mage_Core_Model
      * Adds the search condition for a string to the collection.
      *
      * @param string $text Search string
+     * @return Mzeis_Documentation_Model_Resource_Page_Collection
      */
     public function addSearchFilter($text)
     {

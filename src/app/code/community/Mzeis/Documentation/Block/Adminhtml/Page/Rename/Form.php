@@ -12,7 +12,7 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Rename_Form extends Mage_Adminhtm
     }
 
     /**
-     * @return Mzeis_Documentation_Block_Adminhtml_Page_Edit_Form
+     * @return Mzeis_Documentation_Block_Adminhtml_Page_Rename_Form
      */
     protected function _prepareForm()
     {

@@ -2,9 +2,6 @@
 
 class Mzeis_Documentation_Block_Adminhtml_Page_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
-    /**
-     * @return void
-     */
     public function __construct()
     {
         parent::__construct();
