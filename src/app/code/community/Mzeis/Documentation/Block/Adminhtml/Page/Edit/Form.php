@@ -9,7 +9,6 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Edit_Form extends Mage_Adminhtml_
     {
         parent::__construct();
         $this->setId('page_form');
-        $this->setTitle($this->__('Page Title Here'));
     }
 
     /**
