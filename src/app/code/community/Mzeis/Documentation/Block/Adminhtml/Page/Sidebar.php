@@ -3,7 +3,7 @@
 class Mzeis_Documentation_Block_Adminhtml_Page_Sidebar extends Mage_Adminhtml_Block_Template
 {
     /**
-     * Returns the URL of the "All Pages" page.
+     * Returns the URL of the "All pages" page.
      *
      * @return string
      */
@@ -28,5 +28,14 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Sidebar extends Mage_Adminhtml_Bl
     public function getHomepageUrl()
     {
         return Mage::helper('mzeis_documentation/page')->getViewUrl(Mage::helper('mzeis_documentation')->getHomepageName());
+    }
+
+    /**
+     * Returns the URL of the "Orphan pages" page.
+     *
+     * @return string
+     */
+    public function getOrphanPagesUrl() {
+        return $this->getUrl('adminhtml/mzeis_documentation_list/orphanPages');
     }
 }

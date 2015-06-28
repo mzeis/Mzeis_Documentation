@@ -16,3 +16,6 @@
 "Search","Suchen"
 "All pages","Alle Seiten"
 "No pages found.","Keine Seiten gefunden."
+"Orphan pages","Verwaiste Seiten"
+"%s page(s) not linked by other pages:","%s Seite(n) ohne Verlinkung durch andere Seiten:"
+"There are no pages without links to it.","Es gibt keine Seite ohne Verweise."

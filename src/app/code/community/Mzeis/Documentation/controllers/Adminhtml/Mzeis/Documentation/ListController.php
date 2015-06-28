@@ -9,4 +9,10 @@ class Mzeis_Documentation_Adminhtml_Mzeis_Documentation_ListController extends M
         $this->_initAction();
         $this->renderLayout();
     }
+
+    public function orphanPagesAction()
+    {
+        $this->_initAction();
+        $this->renderLayout();
+    }
 }
