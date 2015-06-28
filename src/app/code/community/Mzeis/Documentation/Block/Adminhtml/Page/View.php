@@ -5,6 +5,14 @@ class Mzeis_Documentation_Block_Adminhtml_Page_View extends Mage_Adminhtml_Block
     protected function _beforeToHtml()
     {
         if ($this->isAllowedEdit()) {
+            $this->setChild('rename_button',
+                $this->getLayout()->createBlock('adminhtml/widget_button')
+                     ->setData(array(
+                         'label' => Mage::helper('catalog')->__('Rename'),
+                         'onclick' => 'window.location.href=\'' . Mage::helper('mzeis_documentation/page')->getRenameUrl($this->getPage()->getName()) . '\'',
+                         'class' => 'edit'
+                     ))
+            );
             $this->setChild('edit_button',
                 $this->getLayout()->createBlock('adminhtml/widget_button')
                      ->setData(array(

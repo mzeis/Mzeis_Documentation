@@ -28,4 +28,22 @@ class Mzeis_Documentation_Model_Resource_Page extends Mage_Core_Model_Resource_D
         $this->_init('mzeis_documentation/page', 'page_id');
     }
 
+    /**
+     * Renames the links in all pages from the old to the new name.
+     *
+     * @param string $oldName
+     * @param string $newName
+     * @return void
+     */
+    public function renameLinks($oldName, $newName)
+    {
+        $adapter = $this->_getWriteAdapter();
+        $adapter->update(
+            $this->getMainTable(),
+            array(
+                'content' => new Zend_Db_Expr('REPLACE(content,' . $adapter->quote($oldName) . ', ' . $adapter->quote($newName) . ')')
+            )
+        );
+    }
+
 }

@@ -53,7 +53,8 @@ since you are viewing the page in the backend and not in the frontend which most
 for.
 
 ###Renaming a page
-Copy the content of the existing page into a new page. Rename all the Links (if necessary). 
+When viewing a page, click the `Rename` button in the top right corner. Choose a unique page name.
+The links to the page will be renamed accordingly.
 
 ###Creating a new page
 You create a new page by editing an existing page and adding a documentation link in this format:

@@ -37,14 +37,6 @@
         </reference>
     </adminhtml_mzeis_documentation_search_index>
 
-    <adminhtml_mzeis_documentation_view>
-        <update handle="adminhtml_mzeis_documentation_general" />
-        <update handle="adminhtml_mzeis_documentation_sidebar" />
-        <reference name="content">
-            <block type="mzeis_documentation/adminhtml_page_view" name="mzeis.documentation.page.view" template="mzeis_documentation/page/view.phtml" />
-        </reference>
-    </adminhtml_mzeis_documentation_view>
-
     <adminhtml_mzeis_documentation_edit>
         <update handle="adminhtml_mzeis_documentation_general"/>
         <update handle="editor"/>
@@ -55,4 +47,20 @@
             <block type="mzeis_documentation/adminhtml_page_edit" name="mzeis.documentation.page.edit" />
         </reference>
     </adminhtml_mzeis_documentation_edit>
+
+    <adminhtml_mzeis_documentation_rename>
+        <update handle="adminhtml_mzeis_documentation_general"/>
+        <reference name="content">
+            <block type="mzeis_documentation/adminhtml_page_rename" name="mzeis.documentation.page.rename" />
+        </reference>
+    </adminhtml_mzeis_documentation_rename>
+
+
+    <adminhtml_mzeis_documentation_view>
+        <update handle="adminhtml_mzeis_documentation_general" />
+        <update handle="adminhtml_mzeis_documentation_sidebar" />
+        <reference name="content">
+            <block type="mzeis_documentation/adminhtml_page_view" name="mzeis.documentation.page.view" template="mzeis_documentation/page/view.phtml" />
+        </reference>
+    </adminhtml_mzeis_documentation_view>
 </layout>

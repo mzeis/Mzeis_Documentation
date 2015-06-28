@@ -30,4 +30,17 @@ class Mzeis_Documentation_Model_Page extends Mage_Core_Model_Abstract
         return $this;
     }
 
+    /**
+     * Renames the links in all pages from the old to the new name.
+     *
+     * @param $oldName
+     * @param $newName
+     * @return Mzeis_Documentation_Model_Page
+     */
+    public function renameLinks($oldName, $newName)
+    {
+        $this->getResource()->renameLinks($oldName, $newName);
+        return $this;
+    }
+
 }

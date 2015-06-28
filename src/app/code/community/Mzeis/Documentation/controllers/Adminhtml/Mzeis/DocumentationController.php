@@ -35,6 +35,8 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
                 $aclResource = 'system/mzeis_documentation/delete';
                 break;
             case 'edit':
+            case 'rename':
+            case 'renamePost':
             case 'save':
                 $aclResource = 'system/mzeis_documentation/edit';
                 break;
@@ -79,6 +81,56 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
     {
         $this->getRequest()->setParam('page', Mage::helper('mzeis_documentation')->getHomepageName());
         $this->_forward('view');
+    }
+
+    public function renameAction()
+    {
+        $this->_initPage();
+        $this->_initAction();
+        $this->renderLayout();
+    }
+
+    public function renamePostAction()
+    {
+        if ($data = $this->getRequest()->getPost()) {
+            try {
+                $page = $this->_initPage();
+
+                if (!$page->getId()) {
+                    Mage::throwException(Mage::helper('mzeis_documentation')->__('This page doesn\'t exist.'));
+                }
+
+                $newName = $data['new_name'];
+
+                if ($newName === $page->getName()) {
+                    $this->_getSession()->addSuccess(
+                        Mage::helper('mzeis_documentation')->__('The new and the old name are identical. No changes have been saved.')
+                    );
+                } else {
+                    $nameCheckPage = Mage::getModel('mzeis_documentation/page')->loadByName($newName);
+                    if ($nameCheckPage->getId()) {
+                        Mage::throwException(Mage::helper('mzeis_documentation')->__("The page '%s' does already exist.", $newName));
+                    }
+
+                    $oldName = $page->getName();
+                    $page->setName($newName);
+                    $page->save();
+                    $this->_getSession()->addSuccess(
+                        Mage::helper('mzeis_documentation')->__('The new name has been saved.')
+                    );
+
+                    $page->renameLinks($oldName, $newName);
+                    $this->_getSession()->addSuccess(
+                        Mage::helper('mzeis_documentation')->__('The links to this page have been renamed.')
+                    );
+                }
+            } catch (Exception $e) {
+                Mage::logException($e);
+                $this->_getSession()->addError($e->getMessage());
+            }
+        }
+
+        $this->_redirect('*/*/view', array('_query' => array('page' => $page->getName()), '_current' => true));
     }
 
     public function saveAction()

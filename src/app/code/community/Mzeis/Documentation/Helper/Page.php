@@ -14,6 +14,17 @@ class Mzeis_Documentation_Helper_Page extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * Creates an rename URL for the backend.
+     *
+     * @param string $page
+     * @return string
+     */
+    public function getRenameUrl($page)
+    {
+        return Mage::helper("adminhtml")->getUrl('adminhtml/mzeis_documentation/rename', array('_query' => array('page' => $page)));
+    }
+
+    /**
      * Creates a view URL for the backend.
      *
      * @param string $page
