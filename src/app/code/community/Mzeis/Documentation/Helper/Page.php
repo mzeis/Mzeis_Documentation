@@ -10,7 +10,7 @@ class Mzeis_Documentation_Helper_Page extends Mage_Core_Helper_Abstract
      */
     public function getEditUrl($page)
     {
-        return Mage::helper("adminhtml")->getUrl('*/*/edit', array('_query' => array('page' => $page)));
+        return Mage::helper("adminhtml")->getUrl('adminhtml/mzeis_documentation/edit', array('_query' => array('page' => $page)));
     }
 
     /**
@@ -21,6 +21,6 @@ class Mzeis_Documentation_Helper_Page extends Mage_Core_Helper_Abstract
      */
     public function getViewUrl($page)
     {
-        return Mage::helper("adminhtml")->getUrl('*/*/view', array('_query' => array('page' => $page)));
+        return Mage::helper("adminhtml")->getUrl('adminhtml/mzeis_documentation/view', array('_query' => array('page' => $page)));
     }
 }

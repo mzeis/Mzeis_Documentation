@@ -10,3 +10,7 @@
 "Created: %s by %s","Erstellt: %s Uhr von %s"
 "Updated: %s by %s","Aktualisiert: %s Uhr von %s"
 "Configuration","Konfiguration"
+"Search results for ""%s""","Suchergebnisse für ""%s"""
+"No pages containing ""%s"" were found.","Es wurden keine Seiten gefunden, die ""%s"" enthalten."
+"%s result(s)","%s Treffer"
+"Search","Suchen"

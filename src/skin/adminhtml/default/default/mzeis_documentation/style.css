@@ -9,10 +9,18 @@
     list-style-type: disc;
 }
 
-.mzeis-documentation-page-container ul {
+.mzeis-documentation-container ul,
+.mzeis-documentation-container ol {
     list-style-position: inside;
-    list-style-type: disc;
     margin: 0.5em 0;
+}
+
+.mzeis-documentation-container ul {
+    list-style-type: disc;
+}
+
+.mzeis-documentation-container ol {
+    list-style-type: decimal;
 }
 
 .mzeis-documentation-meta-info {

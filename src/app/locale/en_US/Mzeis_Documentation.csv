@@ -9,3 +9,7 @@
 "Created: %s by %s","Created: %s by %s"
 "Updated: %s by %s","Updated: %s by %s"
 "Configuration","Configuration"
+"Search results for ""%s""","Search results for ""%s"""
+"No pages containing ""%s"" were found.","No pages containing ""%s"" were found."
+"%s result(s)","%s result(s)"
+"Search","Search"

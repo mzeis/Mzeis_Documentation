@@ -1,16 +1,24 @@
 <?php
 /**
- * @var $this Mage_Adminhtml_Block_Template
+ * @var $this Mzeis_Documentation_Block_Adminhtml_Page_Sidebar
  */
+
 /**
  * @var $_page Mzeis_Documentation_Model_Page
  */
 $_page = $this->getPage();
 ?>
 <div class="content-header">
-    <h3><?php echo $this->__('Documentation') ?></h3>
+    <h3><?php echo $this->__('Documentation'); ?></h3>
 </div>
-<ul class="mzeis-documentation-menu">
-    <li><a href="<?php echo $this->getHomepageUrl(); ?>"><?php echo $this->__('Homepage'); ?></a></li>
-    <li><a href="<?php echo $this->getConfigurationUrl(); ?>"><?php echo $this->__('Configuration'); ?></a></li>
-</ul>
+<div class="mzeis-documentation-container">
+    <form id="mzeis_documentation_search" method="post" action="<?php echo $this->getUrl('*/mzeis_documentation_search/index'); ?>" >
+        <?php echo $this->getBlockHtml('formkey'); ?>
+        <input type="text" id="search_text" name="search_text" value="<?php echo $this->escapeHtml(Mage::helper('mzeis_documentation/search')->getSearchText()); ?>" class="input-text" />
+        <input type="submit" value="<?php echo $this->__('Search'); ?>" class="form-button" />
+    </form>
+    <ul class="mzeis-documentation-menu">
+        <li><a href="<?php echo $this->getHomepageUrl(); ?>"><?php echo $this->__('Homepage'); ?></a></li>
+        <li><a href="<?php echo $this->getConfigurationUrl(); ?>"><?php echo $this->__('Configuration'); ?></a></li>
+    </ul>
+</div>

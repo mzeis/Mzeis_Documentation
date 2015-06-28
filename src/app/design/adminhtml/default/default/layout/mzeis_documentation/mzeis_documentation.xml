@@ -7,11 +7,23 @@
         </reference>
     </adminhtml_mzeis_documentation_general>
 
-    <adminhtml_mzeis_documentation_view>
-        <update handle="adminhtml_mzeis_documentation_general"/>
+    <adminhtml_mzeis_documentation_sidebar>
         <reference name="left">
             <block type="mzeis_documentation/adminhtml_page_sidebar" name="mzeis.documentation.page.sidebar" template="mzeis_documentation/page/sidebar.phtml"/>
         </reference>
+    </adminhtml_mzeis_documentation_sidebar>
+
+    <adminhtml_mzeis_documentation_search_index>
+        <update handle="adminhtml_mzeis_documentation_general"/>
+        <update handle="adminhtml_mzeis_documentation_sidebar" />
+        <reference name="content">
+            <block type="mzeis_documentation/adminhtml_search" name="mzeis.documentation.search" template="mzeis_documentation/search.phtml" />
+        </reference>
+    </adminhtml_mzeis_documentation_search_index>
+
+    <adminhtml_mzeis_documentation_view>
+        <update handle="adminhtml_mzeis_documentation_general" />
+        <update handle="adminhtml_mzeis_documentation_sidebar" />
         <reference name="content">
             <block type="mzeis_documentation/adminhtml_page_view" name="mzeis.documentation.page.view" template="mzeis_documentation/page/view.phtml" />
         </reference>
