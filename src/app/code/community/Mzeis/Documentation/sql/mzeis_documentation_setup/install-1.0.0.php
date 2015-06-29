@@ -23,8 +23,6 @@ $table = $installer->getConnection()
         'nullable'  => true,
     ), 'Creation User')
     ->addColumn('updated_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
-        'nullable'  => false,
-        'default'   => Varien_Db_Ddl_Table::TIMESTAMP_INIT_UPDATE,
     ), 'Update Time')
     ->addColumn('updated_user', Varien_Db_Ddl_Table::TYPE_TEXT, 40, array(
         'nullable'  => true,
