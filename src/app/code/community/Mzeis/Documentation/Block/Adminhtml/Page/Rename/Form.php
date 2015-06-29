@@ -2,9 +2,6 @@
 
 class Mzeis_Documentation_Block_Adminhtml_Page_Rename_Form extends Mage_Adminhtml_Block_Widget_Form
 {
-    /**
-     * @return void
-     */
     public function __construct()
     {
         parent::__construct();
@@ -55,18 +52,5 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Rename_Form extends Mage_Adminhtm
         $this->setForm($form);
 
         return parent::_prepareForm();
-    }
-
-    /**
-     * Load WYSIWYG.
-     *
-     * @return void
-     */
-    protected function _prepareLayout()
-    {
-        parent::_prepareLayout();
-        if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
-            $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
-        }
     }
 }

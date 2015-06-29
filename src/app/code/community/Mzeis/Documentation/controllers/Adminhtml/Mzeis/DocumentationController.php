@@ -92,10 +92,10 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
 
     public function renamePostAction()
     {
+        $page = $this->_initPage();
+
         if ($data = $this->getRequest()->getPost()) {
             try {
-                $page = $this->_initPage();
-
                 if (!$page->getId()) {
                     Mage::throwException(Mage::helper('mzeis_documentation')->__('This page doesn\'t exist.'));
                 }
@@ -136,10 +136,10 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
     public function saveAction()
     {
         $back = $this->getRequest()->getParam('back', false);
+        $page = $this->_initPage();
 
         if ($data = $this->getRequest()->getPost()) {
             try {
-                $page = $this->_initPage();
                 $page->addData($data);
 
                 if (!$page->getId()) {
