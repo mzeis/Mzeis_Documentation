@@ -10,7 +10,7 @@ Build Status
  
 **Development Branch**
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mzeis/Mzeis_Documentation/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mzeis/Mzeis_Documentation/?branch=dev)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mzeis/Mzeis_Documentation/badges/quality-score.png?b=dev)](https://scrutinizer-ci.com/g/mzeis/Mzeis_Documentation/?branch=dev)
 
 
 Facts
