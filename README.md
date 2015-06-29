@@ -15,6 +15,7 @@ Build Status
 
 Facts
 -----
+- Composer key: `mzeis/mzeis_documentation`
 - Version: 1.0.0 (unreleased)
 - [Extension on GitHub](https://github.com/mzeis/Mzeis_Documentation)
 
@@ -25,7 +26,8 @@ Compatibility
 Installation
 ------------
 1. Install the extension using [Composer](https://getcomposer.org/) or
-[modman](https://github.com/colinmollenhour/modman).
+[modman](https://github.com/colinmollenhour/modman). The extension cannot be found on
+[packages.firegento.com](http://packages.firegento.com) but will be added once stable. 
 
 Uninstallation
 --------------
@@ -96,7 +98,7 @@ Support
 -------
 If you have any issues with this extension, please create an issue on GitHub.
 Please provide error messages, debug information like output from the Magento
-error logs and the exact steps / code to reproduce thei ssue.
+error logs and the exact steps / code to reproduce the issue.
 
 Contribution
 ------------
