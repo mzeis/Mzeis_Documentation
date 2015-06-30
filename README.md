@@ -33,27 +33,24 @@ Uninstallation
 --------------
 1. Remove the files.
 2. Remove the following database tables:
-    * mzeis_documentation_page
-3. Remove all entries in database table `core_config_data` starting with `path` `admin/mzeis_documentation/`.
+    * `mzeis_documentation_page`
+3. Remove all entries in database table `core_config_data` starting with the path `admin/mzeis_documentation/`.
 
 Usage
 -----
-Navigate to `System > Documentation`. Start editing the homepage of the
-documentation by clicking the `Edit` button.
+Navigate to `System > Documentation`. Start editing the homepage of the documentation by clicking the `Edit` button.
 
 ###Permissions
 You can define permissions for viewing, editing and deleting pages per admin user role (menu item
 `System > Permissions > Users`, resource `System > Documentation`).
 
 ###Configuration
-The configuration for this extension can be found in `System > Configuration > Advanced
-> Admin`. Alternatively you also can click on the link `Configuration` in the documentation
-menu.
+The configuration for this extension can be found in `System > Configuration > Advanced > Admin`. Alternatively you also
+can click on the link `Configuration` in the documentation menu.
 
 ####Set another page as the documentation homepage
-By default, the documentation homepage is "Home". If you want to set another
-page as the homepage, enter the name in `System > Configuration > Advanced
-> Admin > Documentation > Homepage`.
+By default, the documentation homepage is "Home". If you want to set another page as the homepage, enter the name in
+`System > Configuration > Advanced > Admin > Documentation > Homepage`.
 
 ###Editing a page
 Go to `System > Documentation`, view any documentation page and click the `Edit` button
