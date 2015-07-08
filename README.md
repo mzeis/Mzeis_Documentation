@@ -16,7 +16,7 @@ Build Status
 Facts
 -----
 - Composer key: `mzeis/mzeis_documentation`
-- Version: 1.0.0 (unreleased)
+- Version: 1.0.0
 - [Extension on GitHub](https://github.com/mzeis/Mzeis_Documentation)
 
 Compatibility
@@ -25,9 +25,9 @@ Compatibility
 
 Installation
 ------------
-1. Install the extension using [Composer](https://getcomposer.org/) or
-[modman](https://github.com/colinmollenhour/modman). The extension cannot be found on
-[packages.firegento.com](http://packages.firegento.com) but will be added once stable. 
+Install the extension using [Composer](https://getcomposer.org/) or
+[modman](https://github.com/colinmollenhour/modman). The extension is listed on 
+[packages.firegento.com](http://packages.firegento.com). 
 
 Uninstallation
 --------------
