@@ -36,7 +36,7 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
                 break;
             case 'edit':
             case 'rename':
-            case 'renamePost':
+            case 'renamepost':
             case 'save':
                 $aclResource = 'system/mzeis_documentation/edit';
                 break;
