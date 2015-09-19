@@ -2,11 +2,6 @@
 /**
  * @var $this Mzeis_Documentation_Block_Adminhtml_Page_Sidebar
  */
-
-/**
- * @var $_page Mzeis_Documentation_Model_Page
- */
-$_page = $this->getPage();
 ?>
 <div class="content-header">
     <h3><?php echo $this->__('Documentation'); ?></h3>
@@ -20,7 +15,33 @@ $_page = $this->getPage();
     <ul class="mzeis-documentation-menu">
         <li><a href="<?php echo $this->getHomepageUrl(); ?>"><?php echo $this->__('Homepage'); ?></a></li>
         <li><a href="<?php echo $this->getAllPagesUrl(); ?>"><?php echo $this->__('All pages'); ?></a></li>
-        <li><a href="<?php echo $this->getOrphanPagesUrl(); ?>"><?php echo $this->__('Orphan pages'); ?></a></li>
         <li><a href="<?php echo $this->getConfigurationUrl(); ?>"><?php echo $this->__('Configuration'); ?></a></li>
     </ul>
+</div>
+<div class="content-header">
+    <h3><?php echo $this->__('Project Documentation'); ?></h3>
+</div>
+<div class="mzeis-documentation-container">
+    <ul class="mzeis-documentation-menu">
+        <li><a href="<?php echo $this->getOrphanPagesUrl(); ?>"><?php echo $this->__('Orphan pages'); ?></a></li>
+    </ul>
+</div>
+<div class="content-header">
+    <h3><?php echo $this->__('Module Documentation'); ?></h3>
+</div>
+<div class="mzeis-documentation-container">
+<?php if ($this->getModuleCollection()->count() > 0): ?>
+    <ul>
+        <?php foreach ($this->getModuleCollection() as $_module): ?>
+            <?php
+            /**
+             * @var Mzeis_Documentation_Model_Module $_module
+             */
+            ?>
+            <?php if (count($_module->getPageCollection()) > 0): ?>
+                <li><a href="<?php echo $_module->getOverviewUrl(); ?>"><?php echo $_module->getName(); ?></a></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
 </div>

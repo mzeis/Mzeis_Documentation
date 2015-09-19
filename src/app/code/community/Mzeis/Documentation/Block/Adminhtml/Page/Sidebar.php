@@ -3,6 +3,11 @@
 class Mzeis_Documentation_Block_Adminhtml_Page_Sidebar extends Mage_Adminhtml_Block_Template
 {
     /**
+     * @var Mzeis_Documentation_Model_Resource_Module_Collection
+     */
+    protected $_moduleCollection = null;
+
+    /**
      * Returns the URL of the "All pages" page.
      *
      * @return string
@@ -27,7 +32,17 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Sidebar extends Mage_Adminhtml_Bl
      */
     public function getHomepageUrl()
     {
-        return Mage::helper('mzeis_documentation/page')->getViewUrl(Mage::helper('mzeis_documentation')->getHomepageName());
+        $homepage = Mage::getModel('mzeis_documentation/page');
+        $homepage->setName(Mage::helper('mzeis_documentation')->getHomepageName());
+        return Mage::helper('mzeis_documentation/page')->getViewUrl($homepage);
+    }
+
+    public function getModuleCollection()
+    {
+        if (is_null($this->_moduleCollection)) {
+            $this->_moduleCollection = Mage::getResourceModel('mzeis_documentation/module_collection');
+        }
+        return $this->_moduleCollection;
     }
 
     /**

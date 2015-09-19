@@ -7,14 +7,16 @@ class Mzeis_Documentation_Block_Adminhtml_Page_View extends Mage_Adminhtml_Block
     protected function _beforeToHtml()
     {
         if ($this->isAllowedEdit()) {
-            $this->setChild('rename_button',
-                $this->getLayout()->createBlock('adminhtml/widget_button')
-                     ->setData(array(
-                         'label' => Mage::helper('catalog')->__('Rename'),
-                         'onclick' => 'window.location.href=\'' . Mage::helper('mzeis_documentation/page')->getRenameUrl($this->getPage()->getName()) . '\'',
-                         'class' => 'edit'
-                     ))
-            );
+            if ($this->getPage()->getId()) {
+                $this->setChild('rename_button',
+                    $this->getLayout()->createBlock('adminhtml/widget_button')
+                         ->setData(array(
+                             'label' => Mage::helper('catalog')->__('Rename'),
+                             'onclick' => 'window.location.href=\'' . Mage::helper('mzeis_documentation/page')->getRenameUrl($this->getPage()->getName()) . '\'',
+                             'class' => 'edit'
+                         ))
+                );
+            }
             $this->setChild('edit_button',
                 $this->getLayout()->createBlock('adminhtml/widget_button')
                      ->setData(array(
@@ -28,11 +30,15 @@ class Mzeis_Documentation_Block_Adminhtml_Page_View extends Mage_Adminhtml_Block
     }
 
     /**
+     * Returns whether the page can be edited.
+     *
+     * The page has to be a project documentation page and the user needs to have the privileges.
+     *
      * @return bool
      */
     public function isAllowedEdit()
     {
-        return Mage::getSingleton('admin/session')->isAllowed('system/mzeis_documentation/edit');
+        return $this->getPage()->isProjectPage() && is_null($this->getPage()->getModule()) && Mage::getSingleton('admin/session')->isAllowed('system/mzeis_documentation/edit');
     }
 
     /**

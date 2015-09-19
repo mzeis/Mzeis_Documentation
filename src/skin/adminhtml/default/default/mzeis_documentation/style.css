@@ -11,7 +11,12 @@
 .mzeis-documentation-container ul,
 .mzeis-documentation-container ol {
     list-style-position: inside;
-    margin: 0.5em 0;
+    margin: 0.5em 1em;
+}
+
+.mzeis-documentation-container > ul,
+.mzeis-documentation-container > ol {
+    margin-left: 0;
 }
 
 .mzeis-documentation-container ul {
@@ -20,6 +25,23 @@
 
 .mzeis-documentation-container ol {
     list-style-type: decimal;
+}
+
+.adminhtml-mzeis-documentation-view .page-content p + h1,
+.adminhtml-mzeis-documentation-view .page-content ul + h1,
+.adminhtml-mzeis-documentation-view .page-content ol + h1,
+.adminhtml-mzeis-documentation-view .page-content p + h2,
+.adminhtml-mzeis-documentation-view .page-content ul + h2,
+.adminhtml-mzeis-documentation-view .page-content ol + h2,
+.adminhtml-mzeis-documentation-view .page-content p + h3,
+.adminhtml-mzeis-documentation-view .page-content ul + h3,
+.adminhtml-mzeis-documentation-view .page-content ol + h3
+{
+    margin-top: 1em;
+}
+
+.adminhtml-mzeis-documentation-view .page-content pre {
+    margin-bottom: 0.5em;
 }
 
 .mzeis-documentation-meta-info {

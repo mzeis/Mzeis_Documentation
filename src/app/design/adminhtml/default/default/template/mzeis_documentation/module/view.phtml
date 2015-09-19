@@ -1,0 +1,29 @@
+<?php
+/**
+ * @var $this Mzeis_Documentation_Block_Adminhtml_Module_View
+ */
+
+/**
+ * @var $_module Mzeis_Documentation_Model_Module
+ */
+$_module = $this->getModule();
+?>
+<div class="content-header">
+    <h3><?php echo $this->escapeHtml($_module->getName()); ?></h3>
+</div>
+
+<div class="mzeis-documentation-container">
+    <?php if (count($_module->getPageCollection()) > 0): ?>
+        <ol>
+        <?php foreach ($_module->getPageCollection() as $_page):
+            /**
+             * @var Mzeis_Documentation_Model_Page $_page
+             */
+            ?>
+            <li><a href="<?php echo $_module->getPageUrl($_page->getUrlKey()); ?>"><?php echo $_page->getUrlKey(); ?></a></li>
+        <?php endforeach; ?>
+        </ol>
+    <?php else: ?>
+        <p><?php echo $this->__('This module doesn\'t have a documentation.'); ?></p>
+    <?php endif; ?>
+</div>

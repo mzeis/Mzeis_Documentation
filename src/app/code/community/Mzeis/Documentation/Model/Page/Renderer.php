@@ -16,8 +16,19 @@ class Mzeis_Documentation_Model_Page_Renderer
     {
         $content = $page->getContent();
 
-        $content = $this->_renderDocumentationLinks($content);
-        $content = $this->_renderWidgets($content);
+        switch ($page->getFormat()) {
+            case Mzeis_Documentation_Model_Page::FORMAT_MARKDOWN:
+                $parser = Mzeis_Documentation_Model_Parsedown::instance();
+                $parser->setPage($page);
+                $content = $parser->text($content);
+                break;
+            case Mzeis_Documentation_Model_Page::FORMAT_MAGE_CMS:
+            default:
+                $content = $this->_renderDocumentationLinks($content);
+                $content = $this->_renderWidgets($content);
+                break;
+        }
+
         return $content;
     }
 
@@ -36,17 +47,23 @@ class Mzeis_Documentation_Model_Page_Renderer
              * @var $collection Mzeis_Documentation_Model_Resource_Page_Collection
              */
             $collection = Mage::getModel('mzeis_documentation/page')->getCollection();
-            $collection
-                ->addFieldToSelect('name')
-                ->addFieldToFilter('name', $linkedPages[1]);
-            $existingPages = $collection->getConnection()->fetchCol($collection->getSelect());
+            $collection->addTypeFilter(Mzeis_Documentation_Model_Page::TYPE_PROJECT)
+                       ->addPageFilter($linkedPages[1]);
 
-            foreach ($existingPages as $existingPage) {
-                $content = str_replace('[[' . $existingPage . ']]', '<a href="' . $helper->getViewUrl($existingPage) . '" class="mzeis-documentation-page-found">' . $existingPage . '</a>', $content);
+            // Render links to existing pages
+            foreach ($collection as $page) {
+                $content = str_replace('[[' . $page->getName() . ']]', '<a href="' . $helper->getViewUrl($page) . '" class="mzeis-documentation-page-found">' . $page->getName() . '</a>', $content);
+                $arrayKeys = array_keys($linkedPages[1], $page->getName());
+                foreach ($arrayKeys as $arrayKey) {
+                    unset($linkedPages[0][$arrayKey]);
+                    unset($linkedPages[1][$arrayKey]);
+                }
             }
 
-            foreach (array_diff($linkedPages[1], $existingPages) as $nonExistingPage) {
-                $content = str_replace('[[' . $nonExistingPage . ']]', '<a href="' . $helper->getViewUrl($nonExistingPage) . '" class="mzeis-documentation-page-not-found">' . $nonExistingPage . '</a>', $content);
+            // Render links to non-existing pages
+            foreach ($linkedPages[1] as $nonExistingPage) {
+                $page = Mage::getSingleton('mzeis_documentation/page')->setName($nonExistingPage);
+                $content = str_replace('[[' . $nonExistingPage . ']]', '<a href="' . $helper->getViewUrl($page) . '" class="mzeis-documentation-page-not-found">' . $nonExistingPage . '</a>', $content);
             }
         }
         return $content;

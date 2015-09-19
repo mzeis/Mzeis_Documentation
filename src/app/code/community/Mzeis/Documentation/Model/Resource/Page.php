@@ -3,6 +3,33 @@
 class Mzeis_Documentation_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
 {
     /**
+     * Processes data after loading the page.
+     *
+     * If the database was not identified as the page source then try to load the page from the file.
+     *
+     * @param Mage_Core_Model_Abstract $object
+     * @return Mage_Core_Model_Resource_Db_Abstract
+     */
+    protected function _afterLoad(Mage_Core_Model_Abstract $object)
+    {
+        parent::_afterLoad($object);
+
+        /**
+         * @var Mzeis_Documentation_Model_Page $object
+         */
+        if ($object->sourceIsDatabase()) {
+            return $this;
+        }
+
+        Mage::getResourceSingleton('mzeis_documentation/page_file')->loadFromFile($object);
+
+        if (!$object->hasModule()) {
+            $object->setType(Mzeis_Documentation_Model_Page::TYPE_PROJECT);
+        }
+        return $this;
+    }
+
+    /**
      * Processes data before saving the page.
      *
      * Sets:
@@ -45,5 +72,4 @@ class Mzeis_Documentation_Model_Resource_Page extends Mage_Core_Model_Resource_D
             )
         );
     }
-
 }

@@ -9,20 +9,22 @@
 $_page = $this->getPage();
 ?>
 <div class="content-header">
-    <h3><?php echo $this->escapeHtml($_page->getName()); ?></h3>
+    <h3><?php echo $this->escapeHtml(($_page->hasModule() ? $_page->getModule() . ' > ' : '' ). $_page->getName()); ?></h3>
     <p class="form-buttons">
         <?php echo $this->getChildHtml('rename_button'); ?>
         <?php echo $this->getChildHtml('edit_button'); ?>
     </p>
 </div>
 
-<div class="mzeis-documentation-container">
-    <?php if ($_page->getId()): ?>
+<div class="mzeis-documentation-container page-content">
+    <?php if ($_page->getContent()): ?>
         <?php echo $this->renderContent(); ?>
+        <?php if ($_page->isProjectPage()): ?>
         <div class="box mzeis-documentation-meta-info">
             <p><?php echo $this->__('Created: %s by %s', $this->printDate($_page->getCreatedAt()), $this->escapeHtml(($_page->getCreatedUser()))); ?></p>
             <p><?php if($_page->getCreatedAt() != $_page->getUpdatedAt()) { echo $this->__('Updated: %s by %s', $this->printDate($_page->getUpdatedAt()), $this->escapeHtml($_page->getUpdatedUser())); } ?></p>
         </div>
+        <?php endif; ?>
     <?php else: ?>
         <?php echo $this->__('This page is empty.'); ?>
         <?php if ($this->isAllowedEdit()): echo $this->__('<a href="%s">Add content</a>', Mage::helper('mzeis_documentation/page')->getEditUrl($_page->getName())); endif; ?>
