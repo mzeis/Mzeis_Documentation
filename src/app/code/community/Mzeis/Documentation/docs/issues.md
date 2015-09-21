@@ -7,6 +7,7 @@ Known Issues
     documentation images are saved next to the markdown files.
   * Files are not sorted in an alphabetical manner.
 * Module documentation
-    * Linking between pages using the syntax `[[Page name]]` is only possible for project documentation links
+  * Linking between pages using the syntax `[[Page name]]` is not possible.
 * Markdown pages
   * URLs pointing to files will lose the fragment and query part of an URL.
+  * Linking between pages using the syntax `[[Page name]]` is not possible.

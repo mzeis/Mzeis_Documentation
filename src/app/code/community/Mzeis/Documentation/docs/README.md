@@ -41,6 +41,7 @@ Documentation
    1. [Showing all pages](general.md#all-pages)     
 1. [Project documentation](projectdocumentation.md)
    1. [Editing a page](projectdocumentation.md#editing-page)
+   1. [Choosing the format](projectdocumentation.md#choosing-format)
    1. [Renaming a page](projectdocumentation.md#renaming-page)
    1. [Creating a new page](projectdocumentation.md#creating-page)
    1. [Orphan pages](projectdocumentation.md#orphan-pages)
