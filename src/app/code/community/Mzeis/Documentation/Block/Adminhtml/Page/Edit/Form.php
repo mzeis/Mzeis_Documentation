@@ -13,6 +13,9 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Edit_Form extends Mage_Adminhtml_
      */
     protected function _prepareForm()
     {
+        /**
+         * @var Mzeis_Documentation_Model_Page $model
+         */
         $model = Mage::registry('current_page');
 
         $form   = new Varien_Data_Form(array(
@@ -39,7 +42,20 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Edit_Form extends Mage_Adminhtml_
             'name' => 'name'
         ));
 
-        $fieldset->addField('content', 'editor', array(
+        $fieldset->addField('format', 'select', array(
+            'label'     => $this->__('Format'),
+            'title'     => $this->__('Format'),
+            'note'     => $this->__('<strong>Caution</strong>: you may lose formatting when changing the format!'),
+            'name'      => 'format',
+            'required'  => true,
+            'options'   => array(
+                Mzeis_Documentation_Model_Page::FORMAT_MAGE_CMS => $this->__('HTML'),
+                Mzeis_Documentation_Model_Page::FORMAT_MARKDOWN => $this->__('Markdown'),
+            ),
+        ));
+
+        $contentFieldType = $model->isFormatMarkdown() ? 'textarea' : 'editor';
+        $fieldset->addField('content', $contentFieldType, array(
             'name'      => 'content',
             'label'     => $this->__('Content'),
             'title'     => $this->__('Content'),

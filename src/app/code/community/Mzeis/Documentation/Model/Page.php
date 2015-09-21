@@ -167,6 +167,16 @@ class Mzeis_Documentation_Model_Page extends Mage_Core_Model_Abstract
     }
 
     /**
+     * Returns whether the page content is written in Markdown.
+     *
+     * @return bool
+     */
+    public function isFormatMarkdown()
+    {
+        return $this->getFormat() == self::FORMAT_MARKDOWN;
+    }
+
+    /**
      * Returns whether this page is a module page.
      *
      * @return bool

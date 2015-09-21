@@ -31,3 +31,7 @@
 "Project Documentation","Project Documentation"
 "Module Documentation","Module Documentation"
 "This module doesn't have a documentation.","This module doesn't have a documentation."
+"Format","Format"
+"HTML","HTML"
+"Markdown","Markdown"
+"<strong>Caution</strong>: you may lose formatting when changing the format!","<strong>Caution</strong>: you may lose formatting when changing the format!"
