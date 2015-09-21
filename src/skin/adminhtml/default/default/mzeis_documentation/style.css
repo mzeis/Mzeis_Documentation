@@ -27,6 +27,11 @@
     list-style-type: decimal;
 }
 
+.adminhtml-mzeis-documentation-view h3 a,
+.adminhtml-mzeis-documentation-view h3 a:hover {
+    font-weight: bold;
+}
+
 .adminhtml-mzeis-documentation-view .page-content p + h1,
 .adminhtml-mzeis-documentation-view .page-content ul + h1,
 .adminhtml-mzeis-documentation-view .page-content ol + h1,

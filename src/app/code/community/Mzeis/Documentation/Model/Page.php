@@ -110,6 +110,21 @@ class Mzeis_Documentation_Model_Page extends Mage_Core_Model_Abstract
     }
 
     /**
+     * Returns an instance of the module of the page (if a module is set).
+     *
+     * @return Mzeis_Documentation_Model_Module|null
+     */
+    public function getModuleInstance()
+    {
+        if ($this->getModule()) {
+            $module = Mage::getModel('mzeis_documentation/module');
+            $module->setName($this->getModule());
+            return $module;
+        }
+        return null;
+    }
+
+    /**
      * Returns the URL Key.
      *
      * @return string

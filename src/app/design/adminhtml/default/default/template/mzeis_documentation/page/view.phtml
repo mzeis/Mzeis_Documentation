@@ -9,7 +9,7 @@
 $_page = $this->getPage();
 ?>
 <div class="content-header">
-    <h3><?php echo $this->escapeHtml(($_page->hasModule() ? $_page->getModule() . ' > ' : '' ). $_page->getName()); ?></h3>
+    <h3><?php if ($_page->hasModule()): ?><a href="<?php echo $_page->getModuleInstance()->getOverviewUrl(); ?>" title="<?php echo $this->escapeHtml($_page->getModule()); ?>"><?php echo $this->escapeHtml($_page->getModule()); ?></a> &gt; <?php endif; ?><?php echo $this->escapeHtml($_page->getName()); ?></h3>
     <p class="form-buttons">
         <?php echo $this->getChildHtml('rename_button'); ?>
         <?php echo $this->getChildHtml('edit_button'); ?>
