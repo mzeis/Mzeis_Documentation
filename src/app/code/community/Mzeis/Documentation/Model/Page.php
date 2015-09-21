@@ -25,26 +25,30 @@
 class Mzeis_Documentation_Model_Page extends Mage_Core_Model_Abstract
 {
     /**
-     * Page format is Magento CMS flavoured HTML.
+     * Page format is Magento CMS flavoured HTML
      *
      * @var string
      */
     const FORMAT_MAGE_CMS = 'mage_cms';
 
     /**
-     * Page format is Markdown.
+     * Page format is Markdown
      *
      * @var string
      */
     const FORMAT_MARKDOWN = 'markdown';
 
     /**
-     * Page originates from database.
+     * Page originates from database
+     *
+     * @var string
      */
     const SOURCE_DATABASE = 'database';
 
     /**
-     * Page originates from file.
+     * Page originates from file
+     *
+     * @var string
      */
     const SOURCE_FILE = 'file';
 
@@ -57,16 +61,21 @@ class Mzeis_Documentation_Model_Page extends Mage_Core_Model_Abstract
 
     /**
      * Page type for project documentation
+     *
+     * @var string
      */
     const TYPE_PROJECT = 'project';
 
+    /**
+     * @return int
+     */
     protected function _construct()
     {
         $this->_init('mzeis_documentation/page');
     }
 
     /**
-     * Normalizes a part by removing '.' and '..'.
+     * Normalizes a path by removing '.' and '..'.
      *
      * @copyright runeimp@gmail.com (http://php.net/manual/de/function.realpath.php#112367)
      * @param string $path
@@ -78,29 +87,40 @@ class Mzeis_Documentation_Model_Page extends Mage_Core_Model_Abstract
         $path = str_replace('\\', '/', $path);
         $path = preg_replace('/\/+/', '/', $path);
         $segments = explode('/', $path);
-        foreach($segments as $segment)
-        {
-            if($segment != '.')
-            {
+        foreach($segments as $segment) {
+            if($segment != '.') {
                 $test = array_pop($parts);
-                if(is_null($test))
+                if(is_null($test)) {
                     $parts[] = $segment;
-                else if($segment == '..')
-                {
-                    if($test == '..')
+                } else if($segment == '..') {
+                    if($test == '..') {
                         $parts[] = $test;
+                    }
 
-                    if($test == '..' || $test == '')
+                    if($test == '..' || $test == '') {
                         $parts[] = $segment;
-                }
-                else
-                {
+                    }
+                } else {
                     $parts[] = $test;
                     $parts[] = $segment;
                 }
             }
         }
         return implode('/', $parts);
+    }
+
+    /**
+     * Returns the URL Key.
+     *
+     * @return string
+     */
+    public function getUrlKey()
+    {
+        if ($this->hasRelativename()) {
+            return $this->getRelativename();
+        }
+
+        return $this->getName();
     }
 
     /**
@@ -132,20 +152,6 @@ class Mzeis_Documentation_Model_Page extends Mage_Core_Model_Abstract
     }
 
     /**
-     * Returns the URL Key.
-     *
-     * @return string
-     */
-    public function getUrlKey()
-    {
-        if ($this->hasRelativename()) {
-            return $this->getRelativename();
-        }
-
-        return $this->getName();
-    }
-
-    /**
      * Returns whether this page is a module page.
      *
      * @return bool
@@ -154,7 +160,6 @@ class Mzeis_Documentation_Model_Page extends Mage_Core_Model_Abstract
     {
         return $this->getType() == self::TYPE_MODULE;
     }
-
 
     /**
      * Returns whether this page is a project page.
