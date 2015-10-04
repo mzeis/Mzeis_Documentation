@@ -1,12 +1,15 @@
 {
-    "name": "mzeis/mzeis_documentation",
-    "type": "magento-module",
-    "license": "MIT",
-    "description": "Create a documentation for your project in the backend.",
-    "authors": [
-        {
-            "name": "Matthias Zeis",
-            "homepage": "http://matthias-zeis.com"
-        }
-    ]
+  "name": "mzeis/mzeis_documentation",
+  "type": "magento-module",
+  "require": {
+    "erusev/parsedown": "1.6.0"
+  },
+  "license": "MIT",
+  "description": "Create a documentation for your project in the backend.",
+  "authors": [
+    {
+      "name": "Matthias Zeis",
+      "homepage": "http://matthias-zeis.com"
+    }
+  ]
 }

@@ -13,10 +13,11 @@ $_helper = Mage::helper('mzeis_documentation/page');
     <p><?php echo $this->__('%s result(s)', $_collection->getSize()); ?></p>
     <ol>
     <?php foreach ($_collection as $_page): ?>
-        <li><a href="<?php echo $_helper->getViewUrl($_page->getName()); ?>"><?php echo $this->escapeHtml($_page->getName()); ?></a></li>
+        <li><a href="<?php echo $_helper->getViewUrl($_page); ?>"><?php echo $this->escapeHtml($_helper->getLinkText($_page)); ?></a></li>
     <?php endforeach; ?>
     </ol>
 <?php else: ?>
     <p><?php echo $this->__('No pages found.'); ?></p>
 <?php endif; ?>
 </div>
+

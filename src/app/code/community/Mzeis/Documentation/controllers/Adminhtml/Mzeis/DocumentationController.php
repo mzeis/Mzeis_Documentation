@@ -16,12 +16,19 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
      */
     protected function _initPage()
     {
-        $name = $this->getRequest()->getParam('page', null);
-        $page = Mage::getModel('mzeis_documentation/page');
-        $page->setName($name);
-        $page->loadByName($name);
-        Mage::register('current_page', $page);
-        return $page;
+        if (Mage::registry('current_page') === null) {
+            $name = $this->getRequest()->getParam('page');
+            $module = $this->getRequest()->getParam('module');
+
+            $page = Mage::getModel('mzeis_documentation/page');
+            $page->setName($name);
+            $page->setModule($module);
+            if (!is_null($name)) {
+                $page->loadByName($name);
+            }
+            Mage::register('current_page', $page);
+        }
+        return Mage::registry('current_page');
     }
 
     /**
@@ -30,21 +37,32 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
     protected function _isAllowed()
     {
         $action = strtolower($this->getRequest()->getActionName());
+        $isModifyingAction = false;
+
         switch ($action) {
             case 'delete':
                 $aclResource = 'system/mzeis_documentation/delete';
+                $isModifyingAction = true;
                 break;
             case 'edit':
             case 'rename':
             case 'renamepost':
             case 'save':
                 $aclResource = 'system/mzeis_documentation/edit';
-                break;
+                $isModifyingAction = true;
+            break;
             default:
                 $aclResource = 'system/mzeis_documentation';
                 break;
 
         }
+
+        $page = $this->_initPage();
+
+        if ($isModifyingAction === true && ($page->isModulePage() ||  $page->sourceIsFile())) {
+            return false;
+        }
+
         return Mage::getSingleton('admin/session')->isAllowed($aclResource);
     }
 
@@ -80,6 +98,7 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
     public function indexAction()
     {
         $this->getRequest()->setParam('page', Mage::helper('mzeis_documentation')->getHomepageName());
+        Mage::unregister('current_page');
         $this->_forward('view');
     }
 
@@ -168,17 +187,8 @@ class Mzeis_Documentation_Adminhtml_Mzeis_DocumentationController extends Mage_A
     {
         $this->_initAction();
 
-        $name = $this->getRequest()->getParam('page', null);
-        $page = Mage::getModel('mzeis_documentation/page')->loadByName($name);
-        if (!$page->getId()) {
-            $page->setName($name);
-        }
-
+        $page = $this->_initPage();
         $block = $this->getLayout()->getBlock('mzeis.documentation.page.view');
-        if ($block) {
-            $block->setPage($page);
-        }
-        $block = $this->getLayout()->getBlock('mzeis.documentation.page.sidebar');
         if ($block) {
             $block->setPage($page);
         }

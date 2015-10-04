@@ -13,7 +13,7 @@ $_helper = Mage::helper('mzeis_documentation/page');
     <p><?php echo $this->__('%s page(s) not linked by other pages:', $_collection->getSize()); ?></p>
     <ol>
     <?php foreach ($_collection as $_page): ?>
-        <li><a href="<?php echo $_helper->getViewUrl($_page->getName()); ?>"><?php echo $this->escapeHtml($_page->getName()); ?></a></li>
+        <li><a href="<?php echo $_helper->getViewUrl($_page); ?>"><?php echo $this->escapeHtml($_helper->getLinkText($_page)); ?></a></li>
     <?php endforeach; ?>
     </ol>
 <?php else: ?>

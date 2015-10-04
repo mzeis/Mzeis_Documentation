@@ -14,6 +14,7 @@ class Mzeis_Documentation_Block_Adminhtml_Page_Rename_Form extends Mage_Adminhtm
     protected function _prepareForm()
     {
         $model = Mage::registry('current_page');
+        $model->setNewName($model->getName());
 
         $form   = new Varien_Data_Form(array(
             'id'        => 'rename_form',
