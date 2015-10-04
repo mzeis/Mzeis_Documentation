@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1.0 (Unreleased)
+1.1.0 (04.10.2015)
 ---
 * **Module documentation**
   * Read module documentation from extension files and database

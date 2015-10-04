@@ -5,7 +5,7 @@ Manage your project and module documentation in the backend.
 Facts
 -----
 - Composer key: `mzeis/mzeis_documentation`
-- Version: 1.1.0-beta1
+- Version: 1.1.0
 - [Extension on GitHub](https://github.com/mzeis/Mzeis_Documentation)
 
 Compatibility
