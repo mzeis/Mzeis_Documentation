@@ -2,7 +2,8 @@
   "name": "mzeis/mzeis_documentation",
   "type": "magento-module",
   "require": {
-    "erusev/parsedown": "1.6.0"
+    "erusev/parsedown": "1.6.0",
+    "firegento/psr0autoloader": "dev-master"
   },
   "license": "MIT",
   "description": "Create a documentation for your project in the backend.",
